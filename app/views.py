@@ -90,6 +90,13 @@ def files():
     filenames = get_uploaded_images(app.config['UPLOAD_FOLDER'])
     return render_template('files.html', filenames=filenames)
 
+##exercise 7 log out func
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('home'))
 ###
 # The functions below should be applicable to all Flask apps.
 ###
